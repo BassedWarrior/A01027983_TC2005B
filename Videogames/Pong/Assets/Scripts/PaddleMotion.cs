@@ -13,6 +13,7 @@ using UnityEngine;
 
 public class paddle_motion : MonoBehaviour
 {
+    [SerializeField] float limit;
     [SerializeField] float speed;
     [SerializeField] Vector2 direction;
     [SerializeField] KeyCode positiveKey;
@@ -21,9 +22,9 @@ public class paddle_motion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(positiveKey)) {
+        if (Input.GetKey(positiveKey) && transform.position.y < limit) {
             transform.Translate(direction * speed * Time.deltaTime);
-        } else if (Input.GetKey(negativeKey)) {
+        } else if (Input.GetKey(negativeKey) && transform.position.y > -limit) {
             transform.Translate(-direction * speed * Time.deltaTime);
         }
     }
