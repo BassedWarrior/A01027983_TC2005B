@@ -3,6 +3,8 @@
 // mismo arreglo que se pasa como argumento. No se permite usar la función 
 // integrada 'reverse'.
 
+"use strict";
+
 
 function new_reversed(arr) {
     let new_arr = [];

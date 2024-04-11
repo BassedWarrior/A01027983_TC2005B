@@ -1,6 +1,8 @@
 // Escribe una función que reciba una cadena de texto y regrese una nueva con 
 // la primer letra de cada palabra en mayúscula.
 
+"use strict";
+
 
 function all_german_nouns(str) {
     if (!str) {
