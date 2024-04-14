@@ -2,7 +2,7 @@
 
 ## ER Model
 
-![ER-Model Image][./Pokemon-TCG-ER.drawio.png]
+![ER-Model Image](./Pokemon-TCG-ER.drawio.png)
 
 This is a possible database (DB) Entity Relation (ER) modelling of the Pokemon 
 Trading Card Game (TCG).
@@ -11,12 +11,12 @@ Trading Card Game (TCG).
 
 The following entities were considered:
 
-- [Player Account][#Player-Account]
-- [Deck][#Deck]
-- [Pokemon Card][#Pokemon-Card]
-- [Attack][#Attack]
-- [Type][#Type]
-- [Trainer Card][#Trainer-Card]
+- [Player Account](#Player-Account)
+- [Deck](#Deck)
+- [Pokemon Card](#Pokemon-Card)
+- [Attack](#Attack)
+- [Type](#Type)
+- [Trainer Card](#Trainer-Card)
 
 ### Player Account
 
