@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-14T02:31:34.979Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0" etag="Zg7wm5yiy2YX53uwFja3" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-14T02:32:23.673Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0" etag="7HXUl9dj1C16Y-ALwlXC" version="24.2.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="960" dy="692" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -376,7 +376,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="SEog1j99e9HbI3J2w2K1-105" value="type ENUM NOT NULL" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;" parent="SEog1j99e9HbI3J2w2K1-103" vertex="1">
+        <mxCell id="SEog1j99e9HbI3J2w2K1-105" value="category ENUM NOT NULL" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;" parent="SEog1j99e9HbI3J2w2K1-103" vertex="1">
           <mxGeometry x="30" width="220" height="30" as="geometry">
             <mxRectangle width="220" height="30" as="alternateBounds" />
           </mxGeometry>
