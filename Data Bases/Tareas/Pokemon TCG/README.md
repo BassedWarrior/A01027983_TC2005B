@@ -26,15 +26,15 @@ all things that concern the player and differentiate them from other players.
 
 It has the following attributes:
 
-- username: used for login and identification.
-- password: used for login authentication.
-- country: country of residence.
-- birthdate: used for age verification.
-- e\_mail: used as contact information.
-- screen-name: displayed in-game for other players to see.
-- coins: type of currency used in-game.
-- crystals: type of currency used in-game.
-- credits: type of currency used in-game.
+- username VARCHAR(17): used for login and identification.
+- password VARCHAR(50): used for login authentication.
+- country ENUM: country of residence.
+- birthdate DATE: used for age verification.
+- e\_mail VARCHAR(50): used as contact information.
+- screen-name VARCHAR(15): displayed in-game for other players to see.
+- coins SMALLINT UNSIGNED: type of currency used in-game.
+- crystals SMALLINT UNSIGNED: type of currency used in-game.
+- credits SMALLINT UNSIGNED: type of currency used in-game.
 
 ### Deck
 
@@ -45,9 +45,9 @@ before every match according to their strategy.
 
 It has the following attributes:
 
-- deck\_id: used for identification.
-- username: player to which the deck belongs.
-- name: displayed name for easier identification.
+- deck\_id  TINYINT UNSIGNED: used for identification.
+- username VARCHAR(17): player to which the deck belongs.
+- name VARCHAR(25): displayed name for easier identification.
 
 ### Pokemon Card
 
@@ -57,11 +57,13 @@ removal of all active pokemon from the opponent's active spot and bench.
 
 It has the following attributes:
 
-- name: the name of the pokemon. Serves as unique identifier.
-- type: the pokemon type, which is important for many game mechanics.
-- weakness: increases damage received from certain pokemon types.
-- evolution\_phase: determines playability and is important for game mechanics.
-- ps: pokemon's resistance to attacks before being knocked out.
+- name VARCHAR(25): the name of the pokemon. Serves as unique identifier.
+- type ENUM: the pokemon type, which is important for many game mechanics.
+- weakness ENUM: increases damage received from certain pokemon types.
+- evolution\_phase ENUM: determines playability and is important for game 
+    mechanics.
+- ps TINYINT UNSIGNED: pokemon's resistance to attacks before being knocked 
+    out.
 
 ### Attack
 
@@ -69,10 +71,12 @@ An attack is part of a pokemon card's composition and determines the game
 mechanics for a given pokemon to attack, but has its own attributes that must 
 be considered:
 
-- name: name of the attack. Serves as unique identifier.
-- pokemon\_name: name of the pokemon who has that attack.
-- text: text description of what the attack does. To be displayed in the card.
-- damage: the amount of damage the attack will inflict on oposing pokemon.
+- name VARCHAR(25): name of the attack. Serves as unique identifier.
+- pokemon\_name VARCHAR(25): name of the pokemon who has that attack.
+- text TINITEXT: text description of what the attack does. To be displayed in 
+    the card.
+- damage TINYINT: the amount of damage the attack will inflict on oposing 
+    pokemon.
 
 ### Type
 
@@ -81,7 +85,7 @@ at some point be linked to the energy cards, which constitute the second card
 class a deck can be built with, it was decided to assume it as an entity on 
 its own, even if its only attribute is:
 
-- name: the name of the type.
+- name ENUM: the name of the type.
 
 ### Trainer Card
 
@@ -92,6 +96,6 @@ to excecute it.
 
 It has the following attributes:
 
-- name: name of the card. Serves as unique identifier.
-- category: determines which game mechanics it affects.
-- text: describe the effect the card has. To be displayed in the card.
+- name VARCHAR(25): name of the card. Serves as unique identifier.
+- category ENUM: determines which game mechanics it affects.
+- text TINYTEXT: describe the effect the card has. To be displayed in the card.
