@@ -2,7 +2,7 @@
 
 ## ER Model
 
-![ER-Model Image](./Pokemon-TCG-ER.drawio.png)
+![ER-Model Image](./Pokemon-TCG-ER.drawio.svg)
 
 This is a possible database (DB) Entity Relation (ER) modelling of the Pokemon 
 Trading Card Game (TCG).
