@@ -133,19 +133,28 @@ possibilities as most would never be built by players.
 The relationship between [Player](#Player-Account) and a 
 [Pokemon Card](#Pokemon-Card) or a [Trainer Card](#Trainer-Card) is n to n 
 because, unlike decks, all players could have access to all cards. And hence 
-an intermediary table is crated which relates each player with the cards they 
-own and have access to to build their decks.
+intermediary tables are crated which relate each player with the cards they 
+own and have access to to build their decks. 
+
+*Two distinct intermediary tables are required because a foreign key can only 
+reference a single table. Hence since pokemon and trainer cards are different 
+entities, they effectively have independent relations with the player entity. 
+But were put together in this section for brevity*.
 
 ### Deck Card
 
 The relationship between a [Deck](#Deck) and the 
 [Pokemon Cards](#Pokemon-Card) and [Trainer Cards](#Trainer-Card) that make it 
-up is n to n, given by an intermediary table which links a player's deck to 
-the intermediary table that links a player with the available cards in-game. 
+up is n to n, given by intermediary tables which link a player's deck to 
+the intermediary tables that link a player with the available cards in-game. 
 This ensures that the decks a player owns are built referencing only cards 
 that the player owns, without forbidding the player from using the same card 
 as part of different decks. This is allowed because a player can only use a 
 single deck in any given match.
+
+*As with the [Player Card](#Player-Card) relation, two distinct intermediary 
+tables are required due to pokemon and trainer cards being distinct 
+entities with distinct intermediary tables relating them to players*.
 
 ### Pokemon Attack
 
