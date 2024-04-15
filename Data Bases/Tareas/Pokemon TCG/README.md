@@ -99,3 +99,70 @@ It has the following attributes:
 - name VARCHAR(25): name of the card. Serves as unique identifier.
 - category ENUM: determines which game mechanics it affects.
 - text TINYTEXT: describe the effect the card has. To be displayed in the card.
+
+## Relations
+
+The following relations were modeled:
+
+- [Player-Deck](#Player-Deck)
+- [Player-Card](#Player-Card)
+- [Deck-Card](#Deck-Card)
+- [Pokemon-Attack](#Pokemon-Attack)
+- [Pokemon-Type](#Pokemon-Type)
+- [Attack-Type](#Attack-Type)
+
+### Player Deck
+
+The relationship between a [Player](#Player-Account) and a [Deck](#Deck) was 
+modeled as 1 to n, where a player doesn't necessarily have to have more than 1 
+deck, but a deck must belong to a player. With this relation, no intermediary 
+table is required and a foreign key in the deck table referencing the player 
+table is enough.
+
+It could be argued that, since there exist only a finite number of decks that 
+could be created by the players with the cards in the game, and one could 
+model the player-deck relation to be n to n by storing all possible decks and 
+then relating each player with each deck, it was decided that it is best to 
+have overlapp and duplicated information where two identical decks are stored 
+twice if they belong to two different players for easier arrangement of the 
+database and without the need to compute and store all different deck 
+possibilities as most would never be built by players.
+
+### Player Card
+
+The relationship between [Player](#Player-Account) and a 
+[Pokemon Card](#Pokemon-Card) or a [Trainer Card](#Trainer-Card) is n to n 
+because, unlike decks, all players could have access to all cards. And hence 
+an intermediary table is crated which relates each player with the cards they 
+own and have access to to build their decks.
+
+### Deck Card
+
+The relationship between a [Deck](#Deck) and the 
+[Pokemon Cards](#Pokemon-Card) and [Trainer Cards](#Trainer-Card) that make it 
+up is n to n, given by an intermediary table which links a player's deck to 
+the intermediary table that links a player with the available cards in-game. 
+This ensures that the decks a player owns are built referencing only cards 
+that the player owns, without forbidding the player from using the same card 
+as part of different decks. This is allowed because a player can only use a 
+single deck in any given match.
+
+### Pokemon Attack
+
+The relationship between a [Pokemon Card](#Pokemon-Card) and an 
+[Attack](#Attack) is 1 to n, which is achieved by referencing the pokemon an 
+attack belongs to given that a single pokemon can have multiple attacks, but 
+one attack can't belong to multiple pokemon.
+
+### Pokemon Type
+
+The relationship between a [Pokemon Card](#Pokemon-Card) and a [Type](#Type) 
+is 1 to n, because multiple pokemon can be of the same type. Similarly, 
+the relationship between a pokemon's weakness can be shared with other 
+pokemon, so foreign keys are employed to reference type from the pokemon table.
+
+### Attack Type
+
+The relationship between an [Attack](#Attack) and a [Type](#Type) is n to n, 
+since a single attack can require multiple energy types, and the same energy 
+types can be required by multiple different attacks.
