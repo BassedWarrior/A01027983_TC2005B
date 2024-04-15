@@ -156,6 +156,13 @@ single deck in any given match.
 tables are required due to pokemon and trainer cards being distinct 
 entities with distinct intermediary tables relating them to players*.
 
+Additionally, it must be mentioned that there is a relation between a 
+[Deck](#Deck) and a [Type](#Type) in the form of an energy card, which is 
+n to n as multiple decks can have multiple energy cards of the same type. 
+Which was not deemed important enough to warrant being modeled as an entity. 
+It could be if card graphics were considered, but at this stage, they are 
+ignored.
+
 ### Pokemon Attack
 
 The relationship between a [Pokemon Card](#Pokemon-Card) and an 
