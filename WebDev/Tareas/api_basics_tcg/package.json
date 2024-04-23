@@ -1,0 +1,16 @@
+{
+  "name": "api_basics_tcg",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fausto Jiménez de la Cuesta Vallejo",
+  "license": "ISC",
+  "description": "Basic card management server",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
