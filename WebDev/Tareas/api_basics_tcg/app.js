@@ -28,87 +28,64 @@ app.get("/cards", (req, res) => {
 });
 
 
+function add_new_card(card) {
+    let expected_keys = Object.keys(card_json);
+    let gotten_keys = Object.keys(card);
+
+    // DEBUG ONLY
+    console.log("DEBUG ONLY");
+    console.log(expected_keys, expected_keys.length);
+    console.log(gotten_keys, gotten_keys.length);
+
+    if (expected_keys.length != gotten_keys.length) {
+        return "Card could not be added. Incorrect number of attributes.";
+    };
+
+    let new_card = {};
+    for (let key of expected_keys) {
+        let key_index = gotten_keys.findIndex((gotten_key) => {
+            return gotten_key == key;
+        });
+        console.log(`DEBUG ONLY: ${key} is at index ${key_index}`);
+        if (key_index == -1) {
+            return `Card could not be added. Missing attribute: ${key}.`;
+        } else if (key_index != gotten_keys.findLastIndex((gotten_key) => {
+                return gotten_key == key;
+            })
+        ) {
+            return "Card could not be added. Duplicate attributes provided.";
+        } else if (["id", "name"].includes(key) && card_list.find((crd) => {
+                return crd[key] == card[key];
+            })
+        ) {
+            return `Card could not be added. Card with ${key} = ${card[key]} already stored.`;
+        }
+        new_card[key] = card[key];
+    }
+
+    card_list.push(new_card);
+    return "Card added succesfully";
+};
+
+
 // Add card to stored cards collection.
 app.post("/cards", (req, res) => {
     console.log(req.body);
 
     if (!Array.isArray(req.body)) {
-        let expected_keys = Object.keys(card_json);
-        let gotten_keys = Object.keys(req.body);
-
-        // DEBUG ONLY
-        console.log("DEBUG ONLY");
-        console.log(expected_keys, expected_keys.length);
-        console.log(gotten_keys, gotten_keys.length);
-
-        if (expected_keys.length != gotten_keys.length) {
-            res.status(200)
-                .send("Card could not be added. Incorrect number of attributes.");
-            return;
-        };
-
-        let new_card = {};
-        for (let key of expected_keys) {
-            let key_index = gotten_keys.findIndex((gotten_key) => {
-                return gotten_key == key;
-            });
-            console.log(`DEBUG ONLY: ${key} is at index ${key_index}`);
-            if (key_index == -1) {
-                res.status(200)
-                    .send(`Card could not be added. Missing attribute: ${key}.`);
-                return;
-            } else if (key_index != gotten_keys.findLastIndex((gotten_key) => {
-                    return gotten_key == key;
-                })
-            ) {
-                res.status(200)
-                    .send("Card could not be added. Duplicate attributes provided.");
-                return;
-            }
-            new_card[key] = req.body[key];
-        }
-
-        card_list.push(new_card);
-        res.status(200).send("Card added succesfully");
+        res.status(200).send(add_new_card(req.body));
     } else {
+        let res_msg = "";
         let added_cards = 0;
-        outer: for (let card of req.body) {
-            let expected_keys = Object.keys(card_json);
-            let gotten_keys = Object.keys(card);
-
-            // DEBUG ONLY
-            console.log("DEBUG ONLY");
-            console.log(expected_keys, expected_keys.length);
-            console.log(gotten_keys, gotten_keys.length);
-
-            if (expected_keys.length != gotten_keys.length) {
-                console.log("Card could not be added. Incorrect number of attributes.");
-                continue;
-            };
-
-            let new_card = {};
-            for (let key of expected_keys) {
-                let key_index = gotten_keys.findIndex((gotten_key) => {
-                    return gotten_key == key;
-                });
-                console.log(`DEBUG ONLY: ${key} is at index ${key_index}`);
-                if (key_index == -1) {
-                    console.log(`Card could not be added. Missing attribute: ${key}.`);
-                    continue outer;
-                } else if (key_index != gotten_keys.findLastIndex((gotten_key) => {
-                        return gotten_key == key;
-                    })
-                ) {
-                    console.log("Card could not be added. Duplicate attributes provided.");
-                    continue outer;
-                }
-                new_card[key] = card[key];
+        for (let card of req.body) {
+            let added_msg = add_new_card(card);
+            res_msg += added_msg + "\n";
+            if (added_msg == "Card added succesfully") {
+                added_cards++;
             }
-
-            added_cards++;
-            card_list.push(new_card);
         }
-        res.status(200).send(`Cards added succesfully: ${added_cards}/${req.body.length}`);
+        res_msg += `Cards added succesfully: ${added_cards}/${req.body.length}`;
+        res.status(200).send(res_msg);
     }
 });
 
