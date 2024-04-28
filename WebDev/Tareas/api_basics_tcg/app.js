@@ -112,12 +112,13 @@ app.get("/cards/:id", (req, res) => {
 app.delete("/cards/:id", (req, res) => {
     console.log(req.body);
     let card_index = card_list.findIndex((card) => card.id == req.params.id);
-    if (card_index != -1) {
-        card_list.splice(card_index, 1);
-        res.status(200).send("Card deleted successfully");
-    } else {
+    if (card_index == -1) {
         res.status(200).send("Card not found.");
+        return;
     }
+
+    card_list.splice(card_index, 1);
+    res.status(200).send("Card deleted successfully");
 });
 
 
