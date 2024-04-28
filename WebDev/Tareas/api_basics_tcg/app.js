@@ -125,6 +125,21 @@ app.delete("/cards/:id", (req, res) => {
 // Update a card based on card id.
 app.put("/cards/:id", (req, res) => {
     console.log(req.body);
+    let card_index = card_list.findIndex((card) => card.id == req.params.id);
+    if (card_index == -1){
+        res.status(200).send(`Card update failed. No card with id = ${req.params.id} found`);
+        return;
+    } else if (req.body.id && req.params.id != req.body.id) {
+        res.status(200).send(`Card update failed. Cannot change card id.`);
+        return;
+    }
+
+    for (let key in req.body) {
+        if (!(key in card_list[card_index])) {
+            continue;
+        }
+        card_list[card_index][key] = req.body[key];
+    }
     res.status(200).send("Card updated succesfully");
 });
 
