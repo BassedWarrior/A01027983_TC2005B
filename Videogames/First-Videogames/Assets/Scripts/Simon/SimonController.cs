@@ -54,11 +54,12 @@ public class SimonController : MonoBehaviour
             return;
         }
 
+        buttons[index].Highlight();
         if (counter == sequence.Count)
         {
+            playerTurn = false;
             level++;
             counter = 0;
-            playerTurn = false;
             AddToSequence();
         }
     }
@@ -72,6 +73,7 @@ public class SimonController : MonoBehaviour
 
     IEnumerator PlaySequence()
     {
+        yield return new WaitForSeconds(delay);
         foreach (int index in sequence)
         {
             buttons[index].Highlight();
