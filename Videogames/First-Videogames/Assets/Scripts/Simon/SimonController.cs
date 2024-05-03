@@ -18,6 +18,12 @@ public class SimonController : MonoBehaviour
 
     [SerializeField] int level;
 
+    public int numButtons;
+    [SerializeField] GameObject buttonPrefab;
+    [SerializeField] Transform buttonParent;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +38,16 @@ public class SimonController : MonoBehaviour
 
     void PrepareButtons()
     {
-        for (int i = 0; i < buttons.Count; i++)
+        for (int i = 0; i < numButtons; i++)
         {
             int index = i;
+            // Create the copies of the button as children of the Panel
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+            newButton.GetComponent<Image>().color = Color.HSVToRGB(
+                    (float) index/numButtons, 1, 1);
+            // Set the default color
+            newButton.GetComponent<SimonButton>().Init(index);
+            buttons.Add(newButton.GetComponent<SimonButton>());
             buttons[i].gameObject.GetComponent<Button>()
                 .onClick.AddListener(() => ButtonPressed(index));
         }

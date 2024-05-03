@@ -12,10 +12,13 @@ public class SimonButton : MonoBehaviour
     [SerializeField] float delay;
     Color originalColor;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource audio;
+
+    public void Init(int index)
     {
         originalColor = GetComponent<Image>().color;
+        audio = GetComponent<AudioSource>();
+        audio.clip = Resources.Load<AudioClip>($"Audio/{index}");
     }
 
     public void Highlight()
@@ -26,6 +29,7 @@ public class SimonButton : MonoBehaviour
     IEnumerator ChangeColor()
     {
         GetComponent<Image>().color = Color.white;
+        GetComponent<AudioSource>().Play();
         // Wait a moment before restoring the original color
         yield return new WaitForSeconds(delay);
         GetComponent<Image>().color = originalColor;
