@@ -1369,8 +1369,8 @@ MonoBehaviour:
   limit: 4.2
   speed: 10
   direction: {x: 0, y: 1}
-  positiveKey: 106
-  negativeKey: 107
+  positiveKey: 107
+  negativeKey: 106
 --- !u!1001 &1781933648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1535,8 +1535,8 @@ MonoBehaviour:
   limit: 4.2
   speed: 10
   direction: {x: 0, y: 1}
-  positiveKey: 100
-  negativeKey: 102
+  positiveKey: 102
+  negativeKey: 100
 --- !u!61 &1848417468
 BoxCollider2D:
   m_ObjectHideFlags: 0
