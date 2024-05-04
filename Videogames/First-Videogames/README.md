@@ -37,6 +37,11 @@ La barra de la derecha se mueve con las teclas
 Para resetear la pelota, se puede presionar la siguiente tecla:
 - R: resetear la pelota.
 
+### Botones
+
+- **Main Menu**: Volver al menú principal.
+- **Reset**: resetear la pelota (lo mismo que presionar *R*)
+
 ## Simon
 
 Igualmente, se puede jugar haciendo click en el botón del menú principal.
@@ -67,3 +72,9 @@ El único control que tiene el jugador es el mouse.
 
 Esta selección únicamente funciona mientras sea el turno del jugador, y no 
 hará nada mientras la computadora esté mostrando la nueva secuencia.
+
+### Botones
+
+- **Main Menu**: Volver al menú principal.
+- **Reset**: Reiniciar el juego con una nueva secuencia de 1 solo botón. No 
+    cambia de modo de juego.
