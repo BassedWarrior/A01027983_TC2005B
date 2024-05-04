@@ -18,27 +18,50 @@ public class SimonController : MonoBehaviour
     [SerializeField] float delay;
 
     [SerializeField] bool playerTurn = false;
-    [SerializeField] TMP_Text turn_txt;
+    [SerializeField] TMP_Text turnTxt;
 
     [SerializeField] int level;
-    [SerializeField] TMP_Text level_txt;
+    [SerializeField] TMP_Text levelTxt;
 
     public int numButtons;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
 
-
+    [SerializeField] Transform Canvas;
+    [SerializeField] GameObject modePanel;
+    [SerializeField] GameObject modePanelPrefab;
+    [SerializeField] GameObject modeButtonPrefab;
+    [SerializeField] GameObject normalModeButton;
+    [SerializeField] GameObject reverseModeButton;
+    [SerializeField] bool reverseMode;
 
     // Start is called before the first frame update
     void Start()
     {
-        PrepareButtons();
+        ChooseMode();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChooseMode()
     {
-        
+        modePanel = Instantiate(modePanelPrefab, Canvas);
+        normalModeButton = Instantiate(modeButtonPrefab, 
+                                        modePanel.GetComponent<Transform>());
+        normalModeButton.GetComponentInChildren<TMP_Text>().text = "Normal";
+        normalModeButton.GetComponent<Button>()
+            .onClick.AddListener(() => startGame(false));
+        reverseModeButton = Instantiate(modeButtonPrefab,
+                                        modePanel.GetComponent<Transform>());
+        reverseModeButton.GetComponentInChildren<TMP_Text>().text = "Reverse";
+        reverseModeButton.GetComponent<Button>()
+            .onClick.AddListener(() => startGame(true));
+    }
+
+    public void startGame(bool reverse)
+    {
+        Debug.Log($"Started with reverse: {reverse}");
+        reverseMode = reverse;
+        Destroy(modePanel);
+        PrepareButtons();
     }
 
     void PrepareButtons()
@@ -66,10 +89,25 @@ public class SimonController : MonoBehaviour
         {
             return;
         }
-        else if (index != sequence[counter++])
+        else if (counter >= sequence.Count)
         {
-            turn_txt.text = "GAME OVER!";
-            Debug.Log("Game Over!");
+            turnTxt.text = "GAME OVER!";
+            playerTurn = false;
+            Reset();
+            return;
+        }
+        else if (!reverseMode && (index != sequence[counter++]))
+        {
+            turnTxt.text = "GAME OVER!";
+            playerTurn = false;
+            Reset();
+            return;
+        }
+        else if (reverseMode && index != sequence[sequence.Count - ++counter])
+        {
+            turnTxt.text = "GAME OVER!";
+            playerTurn = false;
+            Reset();
             return;
         }
 
@@ -93,7 +131,9 @@ public class SimonController : MonoBehaviour
     {
         // Add a new button to the sequence
         sequence.Add(Random.Range(0, buttons.Count));
-        turn_txt.text = "SIMON TURN";
+        playerTurn = false;
+        turnTxt.text = "SIMON TURN";
+        levelTxt.text = $"SCORE: {level}";
         StartCoroutine(PlaySequence());
     }
 
@@ -106,6 +146,20 @@ public class SimonController : MonoBehaviour
         }
         yield return new WaitForSeconds(delay);
         playerTurn = true;
-        turn_txt.text = "YOUR TURN!";
+        turnTxt.text = "YOUR TURN!";
+    }
+
+    public void Reset()
+    {
+        if (sequence.Count == 0)
+        {
+            return;
+        }
+
+        sequence.Clear();
+        level = 0;
+        counter = 0;
+        playerTurn = false;
+        Invoke("AddToSequence", 3 * delay);
     }
 }
