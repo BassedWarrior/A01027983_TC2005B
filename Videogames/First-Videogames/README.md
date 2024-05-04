@@ -15,8 +15,13 @@ menú principal para comenzar a jugar.
 
 El juego pong pone a competir a 2 jugadores. Cada uno controla una barra de un 
 lado de la pantalla, y el objetivo es que la pelota salga del lado de la 
-pantalla del contrincante. Cada que la pelota sale por el lado del 
-contrincante, se concede 1 punto al jugador que anotó.
+pantalla del contrincante. La forma en que los jugadores impiden que la pelota 
+salga de su lado de la pantalla, es moviendo sus barras arriba y abajo, de 
+modo que la pelota rebote con la barra y cambie de dirección. 
+
+La pelota rebota cuando toca las barras de los jugadores, o cuando toca los 
+bordes superiores e inferiores de la pantalla. Cada que la pelota sale por el 
+lado del contrincante, se concede 1 punto al jugador que anotó.
 
 ### Controles
 
