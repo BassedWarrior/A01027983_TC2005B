@@ -29,6 +29,9 @@ La barra de la derecha se mueve con las teclas
 - J: abajo
 - K: arriba
 
+Para resetear la pelota, se puede presionar la siguiente tecla:
+- R: resetear la pelota.
+
 ## Simon
 
 Igualmente, se puede jugar haciendo click en el botón del menú principal.
@@ -46,6 +49,11 @@ computadora genera en los distintos botones que aparecen en la pantalla. Cada
 ronda, la computadora elige un nuevo botón para agregar a la secuencia y luego 
 resalta todos los botones de la secuencia en órden. De acuerdo al modo de 
 juego elegido, si este debe ser el mismo, o el inverso orden.
+
+En caso de que el jugador ingrese una secuencia errónea, ya sea por 
+no seleccionar el siguiente botón en el orden de la secuencia, o por 
+seleccionar botones de más, el juego reiniciará y se creará una nueva 
+secuencia.
 
 ### Controles
 
