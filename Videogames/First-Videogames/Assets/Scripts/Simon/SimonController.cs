@@ -27,6 +27,21 @@ public class SimonController : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
 
+    string apiData = @"
+    {
+        ""buttons"": [
+            {
+                ""id"": 0,
+                ""r"": 1.0,
+                ""g"": 0.0,
+                ""b"": 0.5
+            }
+        ]
+    }
+    ";
+
+    [SerializeField] ColorButtons allButtons;
+
     [SerializeField] Transform Canvas;
     [SerializeField] GameObject modePanel;
     [SerializeField] GameObject modePanelPrefab;
@@ -66,6 +81,20 @@ public class SimonController : MonoBehaviour
 
     void PrepareButtons()
     {
+        // Convert the JSON string into an object
+        allButtons = JsonUtility.FromJson<ColorButtons>(apiData);
+
+        foreach (ColorButton buttonData in allButtons.buttons)
+        {
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+            newButton.GetComponent<Image>().color = new Color(
+                    buttonData.r, buttonData.g, buttonData.b);
+            newButton.GetComponent<SimonButton>().Init(buttonData.id);
+            newButton.GetComponent<Button>()
+                .onClick.AddListener(() => ButtonPressed(buttonData.id));
+            buttons.Add(newButton.GetComponent<SimonButton>());
+        }
+        /*
         for (int i = 0; i < numButtons; i++)
         {
             int index = i;
@@ -79,6 +108,7 @@ public class SimonController : MonoBehaviour
             buttons[i].gameObject.GetComponent<Button>()
                 .onClick.AddListener(() => ButtonPressed(index));
         }
+        */
 
         AddToSequence();
     }
