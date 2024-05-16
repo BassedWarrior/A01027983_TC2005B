@@ -1,0 +1,45 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid black;
+}
+
+html {
+    background-color: #C678DD;
+}
+
+body {
+    background-color: #E06C75;
+}
+
+h1 {
+    color: blue;
+    font-size: 1em;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+a {
+    margin-left: 15px;
+    padding: 10px;
+}
+
+.div_style {
+    margin: 20px;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+#css_cheat_sheet {
+    background-color: #56B6C2;
+    color: #282C34;
+}
+
+#button_style {
+    background-color: #E5C07B;
+}
+
+#button_style button {
+    font-size: 2em;
+    border-radius: 10px;
+    background-color: #98C379;
+}
