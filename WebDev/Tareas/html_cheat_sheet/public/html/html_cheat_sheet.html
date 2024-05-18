@@ -24,8 +24,218 @@
         A paragraph provides a space where text can be written in block-style, 
         such that two paragraphs are not displayed next to one another, and 
         are instead displayed below one another sequentially according to the 
-        order they were written in, in the \<body\> tag of the <em>html</em> 
-        file.
+        order they were written in, in the &lt;body&gt; tag of the 
+        <em>.html</em> file.
+    </p>
+
+    <h2>h1, h2, ..., h6 - Headings</h2>
+    <p>
+        A header, element, according to its number is a semantic box element 
+        which provides file structure, in decreasing importance from 1 to 6.
+        <h3>This is a header 3 inside a Header 2</h3>
+        Sum text
+        <h4>This is a header 4 inside a Header 3</h4>
+        Sum more text
+    </p>
+
+    <h2>div - Block-level Container</h2>
+    <p>
+        A &lt;div&gt; can simply be thought of as a block-level element 
+        grouping which provides structure, without any semantic meaning in the 
+        document. In it, one can group different elements as one single 
+        element.
+
+        <div>
+            <h3>A header in a div</h3>
+            <p>This is sum text under the header inside the &lt;div&gt;</p>
+        </div>
+    </p>
+
+    <h2>span - Inline-level Container</h2>
+    <p>
+        A &lt;span&gt; is the inline-level element analogous to a &lt;div&gt;.
+        <span>Sum txt</span> <span>Sum txt</span> and can be assigned 
+        formatting information to only the text contained within it. But this 
+        is exemplified by applying <em>.css</em> formatting. Which is beyond 
+        the scope of this assignment.
+    </p>
+
+    <h2>strong - Strong Text</h2>
+    <p>
+        The &lt;strong&gt; is an inline-level element which makes 
+        <strong>bold text</strong>. With the peculiarity that it has semantic 
+        significance, which entails <strong>strong importance</strong> to the 
+        text.
+    </p>
+
+    <h2>i - Italize</h2>
+    <p>
+        The &lt;i&gt; is an inline-level element which italizes text, with the 
+        purpose of having an <i>alternative voice or tone</i>.
+    </p>
+
+    <h2>u - Underline</h2>
+    <p>
+        The &lt;u&gt; is an inline-level element which <u>underlines text</u>.
+    </p>
+
+    <h2>b - Bold Text</h2>
+    <p>
+        The &lt;b&gt; is an inline-level element which <b>bolds text</b>. To 
+        <b>stylistically offset</b> the text.
+    </p>
+
+    <h2>strike - Strike text</h2>
+    <p>
+        The &lt;strike&gt; is an inline-level elemnt which creates 
+        <strike>strike-through</strike> text. Useful for 
+        <strike>korections</strike> corrections.
+    </p>
+
+    <h2>small - Small text</h2>
+    <p>
+        The &lt;small&gt; is an inline-level element which 
+        <small>shrinks text</small> such that it appears to have a 
+        <small>smaller size</small>.
+    </p>
+
+    <h2>em - Emphasize text</h2>
+    <p>
+        The &lt;em&gt; is an inline-level element which <em>italizes text</em> 
+        with the intent of <em>emphasizing it</em>.
+    </p>
+
+    <h2>header - Header</h2>
+    <p>
+        The &lt;header&gt; is a block-level element which defines the content 
+        of the page which will be displayed at the very top of...well...a 
+        something, which can be any semantically significant structure which 
+        contains it.
+    </p>
+    <header>
+        <h3>Sum heading in a header</h3>
+        This could be the beginning of some weirder examples.
+    </header>
+
+    <h2>section - Section</h2>
+    <p>
+        The &lt;section&gt; is used to provide a logical structure to the text 
+        with semantic grouping and hierarchy.
+    </p>
+    <section>
+        <h3>A small section of text</h3>
+        This is one such section that is part of the weird examples.
+    </section>
+
+    <h2>article - Article</h2>
+    <p>
+        The &lt;article&gt; is a block-level element used to identify an 
+        isolated content which is usually replicated or can be omitted without 
+        any repercussions to the overall structure of the page.
+    </p>
+    <article>
+        This is some text I probably should not leave here. But I could. 
+        As many times as I wanted. And it's just kinda me rambling, so it's 
+        okay.
+    </article>
+
+    <h2>aside - Aside</h2>
+    <p>
+        The &lt;aside&gt; is a block-level element used for text that 
+        accompanies that of the main body to the side of it.
+    </p>
+    <aside>
+        This should hold sidebars and such. But for it to look pretty, we need 
+        CSS.
+    </aside>
+
+    <h2>footer - Footer</h2>
+    <p>
+        The &lt;footer&gt; is a block-level element which identifies the end 
+        of the page. Opposite of the &lt;header&gt;.
+    </p>
+    <footer>
+        CSS needed for pretty...
+    </footer>
+
+    <h2>nav - Navigation</h2>
+    <p>
+        The &lt;nav&gt; is a block-level element used for navigation purposes 
+        within the page. Such as table of contents or next/previous links.
+    </p>
+    <nav>
+        Go to next item...by scrolling down hehe.
+    </nav>
+
+    <h2>img - Image</h2>
+    <p>
+        The &lt;img&gt; is an inline-level element used for inserting images 
+        in a page.
+    </p>
+    <img src="/images/versus.png" width=500px>
+
+    <h2>br - Line break</h2>
+    <p>
+        The &lt;br&gt; is an inline-level element used for adding<br>
+        line breaks in the middle of the text.
+    </p>
+
+    <h2>hr</h2>
+    <p>
+        The &lt;hr&gt; is a block-level element which adds a 
+        <hr>
+        horizontal rule for thematic breaking of paragraph-level elements.
+    </p>
+
+    <h2>form - Form</h2>
+    <p>
+        The &lt;form&gt; is an block-level element for providing a space for 
+        users to enter information.
+        <form>
+            Are you going to VERSUS DIVXS? <input type="text">
+        </form>
+    </p>
+
+    <h2>table - Table</h2>
+    <p>
+        The &lt;table&gt; is a block-level element which allows data to be 
+        organized in a table.
+    </p>
+    <table>
+        <tr>
+            <td>No ir a VERSUS</td>
+            <td>Ir a VERSUS</td>
+        </tr>
+        <tr>
+            <td>Malo</td>
+            <td>Bueno</td>
+        </tr>
+    </table>
+
+    <h2>ul - Unordered list</h2>
+    <p>
+        The &lt;ul&gt; is a block-level element which allows data to be listed 
+        without any order, but with hierarchy.
+        <ul>
+            <li>Tengo algo</li>
+                <ul>
+                    <li>Tengo algo dentro de algo</li>
+                </ul>
+            <li>Tengo otro algo</li>
+        </ul>
+    </p>
+
+    <h2>ol</h2>
+    <p>
+        The &lt;ol&gt; is a block-level element which allows data to be listed 
+        order and with hierarchy.
+        <ol>
+            <li>Tengo algo 1</li>
+                <ol>
+                    <li>Tengo algo 1.1 dentro de algo 1</li>
+                </ol>
+            <li>Tengo otro algo 2</li>
+        </ol>
     </p>
 </body>
 </html>
