@@ -1,0 +1,16 @@
+{
+  "name": "css_cheat_sheet",
+  "version": "1.0.0",
+  "description": "CSS Cheat Sheet",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fausto Jiménez de la Cuesta Vallejo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security"
+  }
+}

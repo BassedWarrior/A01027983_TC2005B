@@ -1,0 +1,85 @@
+.border {
+    border: 2px solid;
+}
+
+.border-left {
+    border-left: 2px solid;
+}
+
+.border-right {
+    border-right: 2px solid;
+}
+
+.border-top {
+    border-top: 2px solid;
+}
+
+.border-bottom {
+    border-bottom: 2px solid;
+}
+
+.border-radius {
+    border-radius: 20px;
+}
+
+.background-image {
+    background-image: url("../images/VERSUS.png");
+}
+
+.color {
+    color: #61AFEF;
+}
+
+.font {
+    font: italic small-caps bold 2em Georgia, serif;
+}
+
+.font-family {
+    font-family: "Courier New", math;
+}
+
+.font-style {
+    font-style: oblique;
+}
+
+.font-weight {
+    font-weight: bolder;
+}
+
+.width {
+    width: 50%;
+}
+
+.height {
+    height: 300px;
+}
+
+.list-style {
+    list-style: square;
+}
+
+.margin {
+    margin: 10px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.overflow {
+    height: 25px;
+    overflow: visible;
+}
+
+.display {
+    display: inline;
+}
+
+.position {
+    position: sticky;
+    bottom: 20px;
+}
+
+.filter {
+    filter: blur(1px);
+}
