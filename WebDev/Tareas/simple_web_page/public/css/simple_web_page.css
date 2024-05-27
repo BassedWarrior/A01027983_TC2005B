@@ -1,0 +1,96 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+div, header {
+    padding: 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+header, form, footer {
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 15%;
+}
+
+form {
+    justify-content: center;
+}
+
+footer {
+    justify-content: center;
+}
+
+a {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #FFF;
+}
+
+button {
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+}
+
+.column-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1cm;
+    padding-bottom: 2cm;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.flex-header, .flex-form, .flex-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mustard {
+    background-color: rgb(170, 106, 35);
+    color: #FFF;
+}
+
+.blue {
+    background-color: rgb(28, 50, 58);
+    color: #FFF;
+}
