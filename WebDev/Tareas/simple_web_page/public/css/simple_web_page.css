@@ -37,14 +37,14 @@ footer {
     justify-content: center;
 }
 
-a {
+nav a {
     margin-left: 10px;
     margin-right: 10px;
     text-decoration: none;
     color: #FFF;
 }
 
-button {
+.flex-form button.with-input {
     margin-left: 5px;
     margin-right: 5px;
     border: none;
@@ -55,6 +55,10 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.column-centered p {
+    text-align: center;
 }
 
 .main {
@@ -75,14 +79,23 @@ button {
 .flex-header, .flex-form, .flex-footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+
+.flex-form .prompt-text {
+    margin-right: 1cm;
+}
+
+.flex-form input.with-prompt {
+    margin-left: 1cm;
 }
 
 .flex-container-centered {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
 }
 
 .mustard {
