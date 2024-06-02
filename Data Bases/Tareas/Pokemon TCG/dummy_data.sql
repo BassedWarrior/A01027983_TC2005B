@@ -1,15 +1,15 @@
--- Inserting dummy data into player_account table
+-- Inserting dummy data into player_account table without repeating countries
 INSERT INTO player_account (username, password, country, birthdate, e_mail, screen_name, coins, crystals, credits)
 VALUES
     ('user1', 'password1', 'United States', '1990-01-01', 'user1@example.com', 'user1_screen', 100, 50, 200),
     ('user2', 'password2', 'Canada', '1995-02-02', 'user2@example.com', 'user2_screen', 150, 60, 220),
     ('user3', 'password3', 'Mexico', '2000-03-03', 'user3@example.com', 'user3_screen', 200, 70, 240),
-    ('user4', 'password4', 'United States', '1985-04-04', 'user4@example.com', 'user4_screen', 250, 80, 260),
-    ('user5', 'password5', 'Canada', '1980-05-05', 'user5@example.com', 'user5_screen', 300, 90, 280),
-    ('user6', 'password6', 'Mexico', '1975-06-06', 'user6@example.com', 'user6_screen', 350, 100, 300),
-    ('user7', 'password7', 'United States', '1970-07-07', 'user7@example.com', 'user7_screen', 400, 110, 320),
-    ('user8', 'password8', 'Canada', '1965-08-08', 'user8@example.com', 'user8_screen', 450, 120, 340),
-    ('user9', 'password9', 'Mexico', '1960-09-09', 'user9@example.com', 'user9_screen', 500, 130, 360),
+    ('user4', 'password4', 'United Kingdom', '1985-04-04', 'user4@example.com', 'user4_screen', 250, 80, 260),
+    ('user5', 'password5', 'Australia', '1980-05-05', 'user5@example.com', 'user5_screen', 300, 90, 280),
+    ('user6', 'password6', 'Germany', '1975-06-06', 'user6@example.com', 'user6_screen', 350, 100, 300),
+    ('user7', 'password7', 'France', '1970-07-07', 'user7@example.com', 'user7_screen', 400, 110, 320),
+    ('user8', 'password8', 'Japan', '1965-08-08', 'user8@example.com', 'user8_screen', 450, 120, 340),
+    ('user9', 'password9', 'Brazil', '1960-09-09', 'user9@example.com', 'user9_screen', 500, 130, 360),
     ('user10', 'password10', 'United States', '1955-10-10', 'user10@example.com', 'user10_screen', 550, 140, 380);
 
 -- Inserting dummy data into deck table
@@ -37,7 +37,8 @@ VALUES
     ('fire'),
     ('fighting'),
     ('fairy'),
-    ('darkness');
+    ('darkness'),
+    ('dragon');
 
 -- Inserting dummy data into pokemon_card table
 INSERT INTO pokemon_card (name, pokemon_type, weakness, evolution_phase, ps)
@@ -67,10 +68,16 @@ VALUES
     ('Psybeam', 'Alakazam', 'Psychic attack', 70),
     ('Dragon Rage', 'Dragonite', 'Dragon attack', 120);
 
--- Inserting dummy data into trainer_card table
+-- Inserting additional dummy data into trainer_card table
 INSERT INTO trainer_card (name, category, text)
 VALUES
-    ('Potion', 'object', 'Restore 20 HP to one of your Pokémon.'),
-    ('Stadium Card', 'stadium', 'This Stadium card stays in play when you play it. Discard this card if another Stadium card comes into play. If any player plays a Stadium card, discard this Stadium card.'),
-    ('Professor Oak', 'supporter', 'Draw 7 cards.');
-
+    ('Great Ball', 'object', 'Search your deck for a Pokémon, reveal it, and put it into your hand. Shuffle your deck afterward.'),
+    ('Rare Candy', 'object', 'Choose 1 of your Basic Pokémon in play. If you have a Stage 1 or Stage 2 card in your hand that evolves from that Pokémon, put that card onto the Basic Pokémon to evolve it.'),
+    ('Max Potion', 'object', 'Heal all damage from 1 of your Pokémon that has at least 1 [W] Energy attached to it. Then, discard all Energy attached to that Pokémon.'),
+    ('Lillie', 'supporter', 'Draw cards until you have 6 cards in your hand.'),
+    ('Quick Ball', 'object', 'You can play this card only if you discard another card from your hand. Search your deck for a Basic Pokémon, reveal it, and put it into your hand. Then, shuffle your deck.'),
+    ('Cynthia', 'supporter', 'Shuffle your hand into your deck. Then, draw 6 cards.'),
+    ('Switch', 'object', 'Switch your Active Pokémon with 1 of your Benched Pokémon.'),
+    ('Evolution Incense', 'object', 'Search your deck for an Evolution Pokémon, reveal it, and put it into your hand. Then, shuffle your deck.'),
+    ('Poké Ball', 'object', 'Flip a coin. If heads, search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck.'),
+    ('Pokémon Communication', 'object', 'Search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck.');

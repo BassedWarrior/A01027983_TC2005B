@@ -5,7 +5,7 @@ USE pokemon;
 CREATE TABLE player_account (
     username VARCHAR(17) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    country ENUM("United States", "Canada", "Mexico") NOT NULL,
+    country ENUM("United States", "Canada", "Mexico", "United Kingdom", "Australia", "Germany", "France", "Japan", "Brazil") NOT NULL,
     birthdate DATE NOT NULL,
     e_mail VARCHAR(50) NOT NULL,
     screen_name VARCHAR(15) NOT NULL,
@@ -24,13 +24,13 @@ CREATE TABLE deck (
 ) ENGINE=InnoDB, CHARSET=UTF8;
 
 CREATE TABLE energy_type (
-    name ENUM("water", "psychic", "metal", "lightning", "grass", "fire", "fighting", "fairy", "darkness") NOT NULL,
+    name ENUM("water", "psychic", "metal", "lightning", "grass", "fire", "fighting", "fairy", "darkness", "dragon") NOT NULL,
     PRIMARY KEY (name)
 ) ENGINE=InnoDB, CHARSET=UTF8;
 
 CREATE TABLE pokemon_card (
     name VARCHAR(25) NOT NULL,
-    pokemon_type ENUM("water", "psychic", "metal", "lightning", "grass", "fire", "fighting", "fairy", "darkness") NOT NULL,
+    pokemon_type ENUM("water", "psychic", "metal", "lightning", "grass", "fire", "fighting", "fairy", "darkness", "dragon") NOT NULL,
     weakness ENUM("water", "psychic", "metal", "lightning", "grass", "fire", "fighting", "fairy", "darkness") NOT NULL,
     evolution_phase ENUM("basic", "phase_1", "phase_2") NOT NULL,
     ps TINYINT UNSIGNED NOT NULL,
